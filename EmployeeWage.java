@@ -1,24 +1,32 @@
+
 public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM");
         //constant variables
-        int isPresent = 1;
-        int wagePerHour=20;
-        int isParttime=2;
+        final int isPresent = 1;
+        final int wagePerHour = 20;
+        final int isParttime = 2;
         //temporary variables
-        int employeeHours=0;
-        int employeeWage=0;
-        /*finding employee is present or not*/
+        int employeeHours = 0;
+        int employeeWage = 0;
+        /*finding employee is present or not using switch case*/
         int attandance = (int) Math.floor(Math.random() * 3);
-        if (isPresent == attandance) {
-            employeeHours=8;
-        } else if(isParttime==attandance) { //adding parttime
-            employeeHours=4;
-        }else{
-            employeeHours=0;
+        switch (attandance) {
+            case isPresent:
+                employeeHours = 8;
+                System.out.println("EMPLOYEE IS FULLTIME..");
+                break;
+            case isParttime:
+                employeeHours = 4;
+                System.out.println("EMPLOYEE IS PARTTIME..");
+                break;
+            default:
+                employeeHours = 0;
+                System.out.println("EMPLOYEE IS ABSENT...");
         }
         //calclulating  employee dialy wage
         employeeWage=employeeHours*wagePerHour;
         System.out.println("EMPLOYEE WAGE: "+employeeWage);
     }
 }
+
