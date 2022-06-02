@@ -1,5 +1,5 @@
 public class EmployeeWage {
-    public static void main(String[] args) {
+    public void computationOfEmployeeWage() {
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM");
         //constant variables
         final int isPresent = 1;
@@ -36,4 +36,5 @@ public class EmployeeWage {
         System.out.println("EMPLOYEE TOTAL WAGE: " + totalEmployeeWage);
     }
 }
+
 
