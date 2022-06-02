@@ -4,14 +4,17 @@ public class EmployeeWage {
         //constant variables
         int isPresent = 1;
         int wagePerHour=20;
+        int isParttime=2;
         //temporary variables
         int employeeHours=0;
         int employeeWage=0;
         /*finding employee is present or not*/
-        int attandance = (int) Math.floor(Math.random() * 2);
+        int attandance = (int) Math.floor(Math.random() * 3);
         if (isPresent == attandance) {
             employeeHours=8;
-        } else {
+        } else if(isParttime==attandance) { //adding parttime
+            employeeHours=4;
+        }else{
             employeeHours=0;
         }
         //calclulating  employee dialy wage
