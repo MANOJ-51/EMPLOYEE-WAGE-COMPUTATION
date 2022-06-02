@@ -6,12 +6,16 @@ public class EmployeeWage {
         final int wagePerHour = 20;
         final int isParttime = 2;
         final int totalWorkingDays = 20;
+        int maximumWorkingHours=100;
         //temporary variables
         int employeeHours = 0;
         int employeeWage = 0;
         int totalEmployeeWage = 0;
+        int totalEmployeeHours=0;
+        int numberOfDays=0;
         /*finding employee is present or not using switch case*/
-        for (int day = 1; day < totalWorkingDays; day++) {
+        while (totalEmployeeHours<maximumWorkingHours && numberOfDays<totalWorkingDays) {
+            numberOfDays++;
             int attandance = (int) Math.floor(Math.random() * 3);
             switch (attandance) {
                 case isPresent:
@@ -24,11 +28,12 @@ public class EmployeeWage {
                     employeeHours = 0;
             }
             //calclulating  employee total wage
+            totalEmployeeHours+=employeeWage;
             employeeWage = employeeHours * wagePerHour;
             totalEmployeeWage = totalEmployeeWage + employeeWage;
-            System.out.println("EMPLOYEE DAY .."+day+"EMPLOYEE INCOME."+employeeWage);
+            System.out.println("EMPLOYEE DAY .." + numberOfDays + "EMPLOYEE INCOME." + employeeWage);
         }
-        System.out.println("EMPLOYE WAGE FOR MONTH : " + totalEmployeeWage);
+        System.out.println("EMPLOYEE TOTAL WAGE: " + totalEmployeeWage);
     }
 }
 
