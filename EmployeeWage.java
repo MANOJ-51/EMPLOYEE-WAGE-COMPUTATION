@@ -1,3 +1,5 @@
+package com.employeWage;
+
 public class EmployeeWage {
     public void computationOfEmployeeWage() {
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM");
