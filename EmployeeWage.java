@@ -1,8 +1,8 @@
 package com.employeWage;
 
 
-//uc10 ability to manage employeewage for multiple companies
-public class EmployeeWage {
+//uc11 ability to manage employeewage for multiple companies using interface implements
+public class EmployeeWage implements InterfaceCompanyEmployeeWage {
 
     //constant variables
     static final int isPresent = 1;
@@ -65,5 +65,6 @@ public class EmployeeWage {
 
 
 }
+
 
 
