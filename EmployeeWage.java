@@ -1,32 +1,32 @@
 package com.employeWage;
 
 
-//uc11 ability to manage employeewage for multiple companies using interface implements
+import java.util.ArrayList;
+
+//uc12 ability to manage employeewage for multiple companies using array list
 public class EmployeeWage implements InterfaceCompanyEmployeeWage {
 
     //constant variables
     static final int isPresent = 1;
     static final int isParttime = 2;
 
-    int numberOfCompanies = 0; //uc10 variable
 
-    //initializing array
-    CompanyEmployeeWage[] companyEmployeeWageArray = new CompanyEmployeeWage[5];
-
-    //getter and setter for total employee wage
+    //initializing arrayLlist
+    static ArrayList<CompanyEmployeeWage> companyEmployeeWageArray = new ArrayList<CompanyEmployeeWage>();
 
 
     //adding company details into array
     public void addCompanyEmployeeWage(String companyName, int totalWorkingDays, int maximumWorkingHours, int wagePerHour) {
-        companyEmployeeWageArray[numberOfCompanies] = new CompanyEmployeeWage(companyName, totalWorkingDays, maximumWorkingHours, wagePerHour);
-        numberOfCompanies++;
+        CompanyEmployeeWage companyEmployeeWage = new CompanyEmployeeWage(companyName, totalWorkingDays, maximumWorkingHours, wagePerHour);
+        companyEmployeeWageArray.add(companyEmployeeWage);
     }
 
     //setting total employee wage in an array for multiple companies
     public void computationOfEmployeeWage() {
-        for (int i = 0; i < numberOfCompanies; i++) {
-            companyEmployeeWageArray[i].setTotalEmployeeWage(this.computationOfEmployeeWage(companyEmployeeWageArray[i]));
-            System.out.println(companyEmployeeWageArray[i]);
+        for (int i = 0; i < companyEmployeeWageArray.size(); i++) {
+            CompanyEmployeeWage companyEmployeeWage = companyEmployeeWageArray.get(i);
+            companyEmployeeWage.setTotalEmployeeWage(this.computationOfEmployeeWage(companyEmployeeWage));
+            System.out.println(companyEmployeeWage);
         }
     }
 
@@ -65,6 +65,7 @@ public class EmployeeWage implements InterfaceCompanyEmployeeWage {
 
 
 }
+
 
 
 
