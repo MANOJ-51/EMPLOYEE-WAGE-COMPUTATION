@@ -1,30 +1,38 @@
 package com.employeWage;
 
-//uc9 using instance variables in class level
+
+//uc10 ability to manage employeewage for multiple companies
 public class EmployeeWage {
 
     //constant variables
     static final int isPresent = 1;
     static final int isParttime = 2;
 
-    //uc9 variables
-    final String companyName;
-    final int totalWorkingDays;
-    final int maximumWorkingHours;
-    final int wagePerHour;
+    int numberOfCompanies = 0; //uc10 variable
 
-    int totalEmployeeWage = 0;
+    //initializing array
+    CompanyEmployeeWage[] companyEmployeeWageArray = new CompanyEmployeeWage[5];
 
-    //constructors
-    public EmployeeWage(String companyName, int totalWorkingDays, int maximumWorkingHours, int wagePerHour) {
-        this.companyName = companyName;
-        this.totalWorkingDays = totalWorkingDays;
-        this.maximumWorkingHours = maximumWorkingHours;
-        this.wagePerHour = wagePerHour;
+    //getter and setter for total employee wage
+
+
+    //adding company details into array
+    public void addCompanyEmployeeWage(String companyName, int totalWorkingDays, int maximumWorkingHours, int wagePerHour) {
+        companyEmployeeWageArray[numberOfCompanies] = new CompanyEmployeeWage(companyName, totalWorkingDays, maximumWorkingHours, wagePerHour);
+        numberOfCompanies++;
     }
 
+    //setting total employee wage in an array for multiple companies
+    public void computationOfEmployeeWage() {
+        for (int i = 0; i < numberOfCompanies; i++) {
+            companyEmployeeWageArray[i].setTotalEmployeeWage(this.computationOfEmployeeWage(companyEmployeeWageArray[i]));
+            System.out.println(companyEmployeeWageArray[i]);
+        }
+    }
+
+
     //computation of employee wage
-    public int computationOfEmployeeWage() {
+    public int computationOfEmployeeWage(CompanyEmployeeWage companyEmployeeWage) {
 
         //temporary variables
         int employeeHours = 0;
@@ -33,7 +41,7 @@ public class EmployeeWage {
         int totalEmployeeHours = 0;
         int numberOfDays = 0;
         /*finding employee is present or not using switch case*/
-        while (totalEmployeeHours < maximumWorkingHours && numberOfDays < totalWorkingDays) {
+        while (totalEmployeeHours < companyEmployeeWage.maximumWorkingHours && numberOfDays < companyEmployeeWage.totalWorkingDays) {
             numberOfDays++;
             int attandance = (int) Math.floor(Math.random() * 3);
             switch (attandance) {
@@ -48,17 +56,14 @@ public class EmployeeWage {
             }
             //calclulating  employee total wage
             totalEmployeeHours += employeeWage;
-            employeeWage = employeeHours * wagePerHour;
-            totalEmployeeWage = totalEmployeeWage + employeeWage;
+            employeeWage = employeeHours * companyEmployeeWage.wagePerHour;
+            companyEmployeeWage.totalEmployeeWage = companyEmployeeWage.totalEmployeeWage + employeeWage;
         }
-        return totalEmployeeWage;
+        return companyEmployeeWage.totalEmployeeWage; //returning to total employee wage
 
     }
 
-    @Override  //rewriting format to print custom
-    public String toString() {
-        return companyName + " " + "EMPLOYEE TOTAL WAGE : " + totalEmployeeWage;
-    }
+
 }
 
 

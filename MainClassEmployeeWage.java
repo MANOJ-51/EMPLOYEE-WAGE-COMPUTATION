@@ -4,12 +4,13 @@ public class MainClassEmployeeWage {
     public static void main(String[] args) {
 
         //adding company details by creating objects
-        EmployeeWage infosys = new EmployeeWage("INFOSYS", 20, 8, 100);
-        infosys.computationOfEmployeeWage();
-        System.out.println(infosys);
+        EmployeeWage object =new EmployeeWage();
 
-        EmployeeWage tcs = new EmployeeWage("TCS", 30, 5, 70);
-        tcs.computationOfEmployeeWage();
-        System.out.println(tcs);
+        //adding comapnies to array
+        object.addCompanyEmployeeWage("INFOSYS",20,100,40);
+        object.addCompanyEmployeeWage("TCS",25,80,20);
+
+        //calling method for computation
+        object.computationOfEmployeeWage();
     }
 }
