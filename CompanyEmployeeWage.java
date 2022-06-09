@@ -5,6 +5,8 @@ interface InterfaceCompanyEmployeeWage {
 
     public abstract void computationOfEmployeeWage();
 
+    public abstract void getTotalWage(String companyName); //uc14
+
     public class CompanyEmployeeWage {
 
 
@@ -40,4 +42,3 @@ interface InterfaceCompanyEmployeeWage {
 
     }
 }
-

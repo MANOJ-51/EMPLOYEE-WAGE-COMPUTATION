@@ -3,7 +3,7 @@ package com.employeWage;
 
 import java.util.ArrayList;
 
-//uc12 ability to manage employeewage for multiple companies using array list
+//uc13 storing dialy wage along with total wage
 public class EmployeeWage implements InterfaceCompanyEmployeeWage {
 
     //constant variables
@@ -41,7 +41,7 @@ public class EmployeeWage implements InterfaceCompanyEmployeeWage {
         int totalEmployeeHours = 0;
         int numberOfDays = 0;
         /*finding employee is present or not using switch case*/
-        while (totalEmployeeHours < companyEmployeeWage.maximumWorkingHours && numberOfDays < companyEmployeeWage.totalWorkingDays) {
+        while (totalEmployeeHours <= companyEmployeeWage.maximumWorkingHours && numberOfDays < companyEmployeeWage.totalWorkingDays) {
             numberOfDays++;
             int attandance = (int) Math.floor(Math.random() * 3);
             switch (attandance) {
@@ -58,14 +58,28 @@ public class EmployeeWage implements InterfaceCompanyEmployeeWage {
             totalEmployeeHours += employeeHours;
             employeeWage = employeeHours * companyEmployeeWage.wagePerHour;
             companyEmployeeWage.totalEmployeeWage = companyEmployeeWage.totalEmployeeWage + employeeWage;
+
+            //uc13 storing dialy wage along with total wage
+            System.out.println(companyEmployeeWage.companyName + " DAY " + numberOfDays + " WAGE " + employeeWage + " EMPLOYEE HOURS " + employeeHours);
         }
         return companyEmployeeWage.totalEmployeeWage; //returning to total employee wage
 
     }
 
+    //uc14 ability get total wage when quired by companey
+    public void getTotalWage(String companyName) {
+        for (int i = 0; i < companyEmployeeWageArray.size(); i++) {
+            String name = companyEmployeeWageArray.get(i).companyName;
+            if (name.equals(companyName)) {
+                int totalWage = companyEmployeeWageArray.get(i).totalEmployeeWage;
+                System.out.println(companyName + " TOTAL EMPLOYEE WAGE IS " + totalWage);
+                break;
+            } else {
+                continue;
+            }
+        }
+    }
+
 
 }
-
-
-
 

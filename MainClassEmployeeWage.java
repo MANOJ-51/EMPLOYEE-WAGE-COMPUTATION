@@ -12,7 +12,9 @@ public class MainClassEmployeeWage {
 
         //calling method for computation
         object.computationOfEmployeeWage();
+
+        //UC14 GET TOTAL WAGE WHEN QUIRED BY COMPANY
+        object.getTotalWage("TCS");
     }
 }
-
 
