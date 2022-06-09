@@ -28,7 +28,7 @@ public class EmployeeWage {
                     employeeHours = 0;
             }
             //calclulating  employee total wage
-            totalEmployeeHours+=employeeWage;
+            totalEmployeeHours+=employeeHours;
             employeeWage = employeeHours * wagePerHour;
             totalEmployeeWage = totalEmployeeWage + employeeWage;
             System.out.println("EMPLOYEE DAY .." + numberOfDays + "EMPLOYEE INCOME." + employeeWage);
