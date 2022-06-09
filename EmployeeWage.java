@@ -1,15 +1,35 @@
 package com.employeWage;
 
+//uc9 using instance variables in class level
 public class EmployeeWage {
-    public void computationOfEmployeeWage(String companyName,int totalWorkingDays,int maximumWorkingHours,int wagePerHour) {
-        System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM");
-        //constant variables
-        final int isPresent = 1;
-        final int isParttime = 2;
+
+    //constant variables
+    static final int isPresent = 1;
+    static final int isParttime = 2;
+
+    //uc9 variables
+    final String companyName;
+    final int totalWorkingDays;
+    final int maximumWorkingHours;
+    final int wagePerHour;
+
+    int totalEmployeeWage = 0;
+
+    //constructors
+    public EmployeeWage(String companyName, int totalWorkingDays, int maximumWorkingHours, int wagePerHour) {
+        this.companyName = companyName;
+        this.totalWorkingDays = totalWorkingDays;
+        this.maximumWorkingHours = maximumWorkingHours;
+        this.wagePerHour = wagePerHour;
+    }
+
+    //computation of employee wage
+    public int computationOfEmployeeWage() {
+
         //temporary variables
         int employeeHours = 0;
         int employeeWage = 0;
-        int totalEmployeeWage = 0;
+
         int totalEmployeeHours = 0;
         int numberOfDays = 0;
         /*finding employee is present or not using switch case*/
@@ -31,7 +51,13 @@ public class EmployeeWage {
             employeeWage = employeeHours * wagePerHour;
             totalEmployeeWage = totalEmployeeWage + employeeWage;
         }
-        System.out.println(companyName+ " "  + "EMPLOYEE TOTAL WAGE : " +  totalEmployeeWage);
+        return totalEmployeeWage;
+
+    }
+
+    @Override  //rewriting format to print custom
+    public String toString() {
+        return companyName + " " + "EMPLOYEE TOTAL WAGE : " + totalEmployeeWage;
     }
 }
 
