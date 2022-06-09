@@ -55,7 +55,7 @@ public class EmployeeWage implements InterfaceCompanyEmployeeWage {
                     employeeHours = 0;
             }
             //calclulating  employee total wage
-            totalEmployeeHours += employeeWage;
+            totalEmployeeHours += employeeHours;
             employeeWage = employeeHours * companyEmployeeWage.wagePerHour;
             companyEmployeeWage.totalEmployeeWage = companyEmployeeWage.totalEmployeeWage + employeeWage;
         }
